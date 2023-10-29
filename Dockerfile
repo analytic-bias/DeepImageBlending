@@ -1,5 +1,5 @@
 # Use an official Python runtime as a parent image
-FROM python:3.8
+FROM nvcr.io/nvidia/pytorch:23.10-py3
 
 # Set the working directory to /app
 WORKDIR /app
@@ -15,10 +15,6 @@ RUN apt-get update && apt-get install -y \
 RUN pip install --no-cache-dir poetry \
     && poetry config virtualenvs.create false \
     && poetry install --no-root --no-interaction
-
-# Expose the port that your application will run on
-# (if applicable, remove or change this line based on your project)
-EXPOSE 8000
 
 # Define the command to run your application
 # (update this based on how you start your project)

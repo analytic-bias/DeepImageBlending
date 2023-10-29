@@ -1,6 +1,13 @@
 {
   "name": "Python 3.8 with Poetry",
-  "dockerFile": "Dockerfile",
+  "dockerFile": "./Dockerfile",
+
+  "features": {
+    "ghcr.io/devcontainers/features/nvidia-cuda:1": {
+      "installCudnn": true
+    }
+  },
+
 
   // Add the extensions you want to install in Visual Studio Code
   "extensions": [
