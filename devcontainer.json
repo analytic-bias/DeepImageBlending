@@ -1,0 +1,24 @@
+{
+  "name": "Python 3.8 with Poetry",
+  "dockerFile": "Dockerfile",
+
+  // Add the extensions you want to install in Visual Studio Code
+  "extensions": [
+    "ms-python.python",
+    "ms-python.vscode-pylance"
+  ],
+
+  // Mount the current project folder into the container
+  "workspaceMount": "source=/workspaceFolder,target=/app,type=bind,consistency=cached",
+
+  // The settings for Codespaces
+  "settings": {
+    "python.autoComplete.addBrackets": true,
+    "python.pythonPath": "/usr/local/bin/python",
+    "python.formatting.provider": "black",
+    "python.formatting.blackPath": "/usr/local/bin/black"
+  },
+
+  // Post-create command to set up the virtual environment
+  "postCreateCommand": "poetry config virtualenvs.create true && poetry install --no-root --no-interaction"
+}
